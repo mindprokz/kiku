@@ -1,13 +1,44 @@
+// lang vars
+case process.env.NODE_ENV
+  when 'ru'
+    - var text = 'Мы искренне будем рады видеть Вас и надеемся, что каждое посещение нашего ресторана будет для Вас новым наслаждением и изысканным ритуалом.'
+    - var adress = 'Астана, пр. Туран, 30<br> здание Fitness Palace'
+    - var worktime = 'РЕЖИМ РАБОТЫ: <br> с 12:00 до 01:00'
+    - var header_adr = 'Адрес'
+    - var header_cont = 'Контакты'
+  when 'eng'
+    - var text = 'We are looking forward to meet you again and hope that every visit to our restaurant is a new delight and refined ritual for you'
+    - var adress = 'Astana, 30 Turan avenue<br> FitnessPalace building'
+    - var worktime = 'Working hours: <br> from 12:00 till 01:00'
+    - var header_adr = 'Address'
+    - var header_cont = 'Contacts'
+  when 'kz'
+    - var text = 'Сіздер үшін есігіміз айқара ашық, біздің мейрамханаға келген сайын тынысыңыз кеңейіп, көңілдеріңізден шығады деген үміттеміз.'
+    - var adress = 'Астана, Тұран даңғылы,<br> 30 Fitness Palace ғимараты'
+    - var worktime = 'ЖҰМЫС ТӘРТІБІ: <br> 12:00-ден 01.00-ге'
+    - var header_adr = 'Адрес'
+    - var header_cont = 'Контакты'
+
 section#footer
   .container
-    p.text Мы искренне будем рады видеть Вас и надеемся, что каждое посещение нашего ресторана будет для Вас новым наслаждением и изысканным ритуалом.
+    p.text #{text}
     .adress
-      p!="Астана, пр. Туран, 30<br> здание Fitness Palace"
-      a(href="#").mail kikumatsuri@mail.ru
+      img(src="images/geo.png").icon
+      .text_cont
+        h3 #{header_adr}
+        p !{adress}
+        .work !{worktime}
     .numbers
-      .num!="+7 (7172) <b>56-77-33</b>"
-      .num!="+7 775 <b>793-17-06</b>"
-      .work РЕЖИМ РАБОТЫ: ежедневно с 12:00 до 01:00
+      img(src="images/phone.png").icon
+      .text_cont
+        h3 #{header_cont}
+        .num!="+7 (7172) <b>56-77-33</b>"
+        .num!="+7 775 <b>793-17-06</b>"
+        a(href="#").feed_open_fc.mail kikumatsuri@mail.ru
+  .container
+    h4
+      span.upper Kiku Matsuri
+      span— 2017
 a(href="http://satgroup.kz" target="_blank"): img(src="images/rest_but.png").all_rest
 
 script(src="https://api-maps.yandex.ru/2.1/?lang=ru-RU" type="text/javascript")
